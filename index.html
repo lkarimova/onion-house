@@ -62,9 +62,9 @@
         }
 
         h1 {
-            font-size: 48px;
-            font-weight: 300;
-            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 10px;
             letter-spacing: 2px;
         }
 
@@ -174,13 +174,19 @@
 
         /* Footer */
         footer {
-            text-align: center bottom;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
             padding: 40px 20px;
             margin-top: 80px;
             border-top: none; /* previously 1px solid rgba(0, 0, 0, 0.1) */
             font-size: 14px;
+            font-weight: 200;
             color: #666;
             pointer-events: none;
+            z-index: 1;
         }
 
         /* Layer-specific backgrounds */
@@ -259,14 +265,14 @@
     
     <div class="container" style="position: relative; z-index: 1;">
         <header>
-            <h1>Onion House</h1>
+            <h1>ONION HOUSE</h1>
             <p class="description">
                 The Onion House is a speculative dwelling where each spatial layer represents a different relationship between human life and its technological systems. Like the layers of an organism or a planet, each shell has its own sensory logic, autonomy level, and degree of technological exposure — forming a living interface between the digital, the mechanical, and the organic.
             </p>
         </header>      
     </div>
 
-    <footer style="position: relative; z-index: 1;">
+    <footer>
         © Liza Karimova
     </footer>
 </body>
