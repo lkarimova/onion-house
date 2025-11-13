@@ -27,7 +27,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
-            min-height: 100vh;
+            pointer-events: none;
+        }
+
+        .container a,
+        .hotspot {
+            pointer-events: auto;
         }
 
         /* Breadcrumbs */
@@ -66,8 +71,9 @@
         .description {
             max-width: 800px;
             margin: 0 auto;
+            font-weight: 200;
             font-size: 16px;
-            line-height: 1.8;
+            line-height: 1.6;
             color: #555;
         }
 
@@ -174,6 +180,7 @@
             border-top: 1px solid rgba(0, 0, 0, 0.1);
             font-size: 14px;
             color: #666;
+            pointer-events: none;
         }
 
         /* Layer-specific backgrounds */
