@@ -20,6 +20,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            height: 100vh;
         }
 
         .container {
@@ -206,14 +207,15 @@
     <model-viewer 
             src="model.glb"
             camera-controls 
-            touch-action="pan-y"
+            touch-action="none"
+            disable-zoom
             auto-rotate
             environment-image="legacy"
             exposure="2"
             shadow-intensity="0.5"
             shadow-softness="1"
             tone-mapping="agx"
-            camera-orbit="45deg 75deg 50m"
+            camera-orbit="45deg 75deg 40m"
             min-camera-orbit="auto auto 10m"
             max-camera-orbit="auto auto 100m"
             style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0;"
