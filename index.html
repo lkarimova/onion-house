@@ -26,7 +26,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px 20px;
         }
 
         /* Breadcrumbs */
@@ -51,7 +51,7 @@
 
         .columns {
             display: flex;
-            gap: 40px;
+            gap: 60px;
             align-items: flex-start;
         }
 
@@ -63,12 +63,34 @@
         @media (max-width: 768px) {
           .columns {
             flex-direction: column;
+            gap: 10px;
           }
+            
+          .container {
+            padding: 8px 16px 8px;  
+          }
+
+          .column p {
+            margin-bottom: 10px;
+          }
+
+          header {
+            margin-bottom: 10px;
+          }
+            
+          h1 {
+            font-size: 32px;
+          }
+
+          .description,
+          .column p {
+            font-size: 14px;
+          }  
         }
         
         /* Header */
         header {
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
 
         h1 {
