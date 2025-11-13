@@ -17,12 +17,16 @@
             background-color: #EBFBFF;
             color: #333;
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
+            min-height: 100vh;
         }
 
         /* Breadcrumbs */
@@ -64,15 +68,6 @@
             font-size: 16px;
             line-height: 1.8;
             color: #555;
-        }
-
-        /* Model Viewer */
-        model-viewer {
-            width: 100%;
-            height: 1000px;
-            margin: 40px 0;
-            background-color: transparent;
-            border-radius: 8px;
         }
 
         /* Hotspot Styles */
@@ -208,15 +203,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Onion House</h1>
-            <p class="description">
-                The Onion House is a speculative dwelling where each spatial layer represents a different relationship between human life and its technological systems. Like the layers of an organism or a planet, each shell has its own sensory logic, autonomy level, and degree of technological exposure — forming a living interface between the digital, the mechanical, and the organic.
-            </p>
-        </header>
-
-        <model-viewer 
+    <model-viewer 
             src="model.glb"
             camera-controls 
             touch-action="pan-y"
@@ -226,10 +213,13 @@
             shadow-intensity="0.5"
             shadow-softness="1"
             tone-mapping="agx"
-            camera-orbit="45deg 75deg 2.5m"
+            camera-orbit="45deg 75deg 5m"
+            min-camera-orbit="auto auto 3m"
+            max-camera-orbit="auto auto 10m"
             alt="Onion House 3D Model">
-            
-            <!-- Calm Outer Layer Hotspot -->
+            style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0;">
+        
+        <!-- Calm Outer Layer Hotspot -->
             <a href="calm-outer-layer.html" class="hotspot calm" slot="hotspot-1" data-position="0.8m 0.8m 0.8m" data-normal="0m 1m 0m">
                 <div class="hotspot-content">
                     <div class="hotspot-category">Calm Outer Layer</div>
@@ -256,6 +246,14 @@
                 <span class="hotspot-arrow">→</span>
             </a>
         </model-viewer>
+    
+    <div class="container" style="position: relative; z-index: 1;">
+        <header>
+            <h1>Onion House</h1>
+            <p class="description">
+                The Onion House is a speculative dwelling where each spatial layer represents a different relationship between human life and its technological systems. Like the layers of an organism or a planet, each shell has its own sensory logic, autonomy level, and degree of technological exposure — forming a living interface between the digital, the mechanical, and the organic.
+            </p>
+        </header>      
     </div>
 
     <footer>
