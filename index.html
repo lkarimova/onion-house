@@ -23,13 +23,6 @@
             height: 100vh;
         }
 
-        @media (max-width: 768px) {
-            body {
-                overflow-y: auto;
-                height: auto;
-            }
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -56,6 +49,23 @@
             color: #999;
         }
 
+        .columns {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .column {
+          flex: 1;
+          min-width: 0;
+        }    
+
+        @media (max-width: 768px) {
+          .columns {
+            flex-direction: column;
+          }
+        }
+        
         /* Header */
         header {
             margin-bottom: 30px;
@@ -230,14 +240,15 @@
 </head>
 <body>
     <div class="container" style="position: relative; z-index: 0;">
-      <div class="column">
+      <div class="columns">
+        <div class="column">  
         <header>
             <h1>Onion House</h1>
             <p class="description">
                 The Onion House is a spatial design concept that explores the future of our relationship with technology, specifically in the context of our homes. It's rooted in the idea of extremes, and introduces 3 layers that are linked together with interstitial spaces: (1) the Calm Periphery, (2) the Cognitive Lab, and (3) the Resilience Core. 
             </p>
         </header>
-
+          
         <p>The outer layer embraces invisible technology and natural materials. Digital and mechanical systems operate seamlessly in the background, creating an environment of calm technology where interfaces disappear and human experience takes center stage.</p>
             
             <p>Natural materials like wood, stone, and living plants create a biophilic sanctuary. Technology remains at the periphery of attention—ambient, responsive, but never demanding. The space harnesses the inherent power of its physical form.</p>
@@ -250,9 +261,10 @@
             
             <p>At the core lies a refuge from digital technology—a fail-safe zone with accessible mechanical systems and independent life support. This is the operational headquarters, protected by outer layers, functioning when all else fails. Basic, reliable, and self-sufficient.</p>
        </div>
+      </div>   
     </div>
     
-    <footer style="positioin: fixed; bottom: 0; left: 0; width: 100%; z-index: 2; background: transparent;">
+    <footer style="position: fixed; bottom: 0; left: 0; width: 100%; z-index: 2; background: transparent;">
         © Liza Karimova
     </footer>
     
