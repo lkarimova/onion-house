@@ -143,10 +143,6 @@
           pointer-events: none;     /* keeps your model clickable */
         }
 
-        .homepage-center * {
-          pointer-events: auto;     /* restore pointer events for text & links */
-        }
-
         /* Model Viewer */
         model-viewer {
             background-color: transparent;
@@ -291,6 +287,7 @@
         }
     </style>
 </head>
+    
 <body>
     <div class="container homepage-center">
       <div class="columns">
@@ -368,6 +365,24 @@
                 <span class="hotspot-arrow">→</span>
             </a>
         </model-viewer>
-    
+    <script>
+        const modelViewer = document.querySelector('model-viewer');
+
+          // Store the initial camera orbit when the model loads
+          let initialOrbit;
+          modelViewer.addEventListener('load', () => {
+            const orbit = modelViewer.getCameraOrbit();
+            initialOrbit = `${orbit.theta}rad ${orbit.phi}rad ${orbit.radius}m`;
+          });
+
+          // Press "R" to reset camera view
+          window.addEventListener('keydown', (event) => {
+            if (event.key === 'r' || event.key === 'R') {
+              if (initialOrbit) {
+                modelViewer.cameraOrbit = initialOrbit;
+              }
+            }
+          });
+    </script>
 </body>
 </html>
