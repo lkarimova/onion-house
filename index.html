@@ -368,21 +368,26 @@
     <script>
         const modelViewer = document.querySelector('model-viewer');
 
-          // Store the initial camera orbit when the model loads
-          let initialOrbit;
-          modelViewer.addEventListener('load', () => {
+        let initialOrbit, initialTarget, initialFov;
+
+        modelViewer.addEventListener('load', () => {
             const orbit = modelViewer.getCameraOrbit();
+            const target = modelViewer.getCameraTarget();
             initialOrbit = `${orbit.theta}rad ${orbit.phi}rad ${orbit.radius}m`;
+            initialTarget = `${target.x}m ${target.y}m ${target.z}m`;
+            initialFov = modelViewer.getFieldOfView();
           });
 
-          // Press "R" to reset camera view
-          window.addEventListener('keydown', (event) => {
+         window.addEventListener('keydown', (event) => {
             if (event.key === 'r' || event.key === 'R') {
-              if (initialOrbit) {
-                modelViewer.cameraOrbit = initialOrbit;
-              }
-            }
-          });
+            if (!initialOrbit) return;
+
+        modelViewer.cameraOrbit = initialOrbit;
+        modelViewer.cameraTarget = initialTarget;
+        modelViewer.fieldOfView = initialFov;
+        modelViewer.jumpCameraToGoal(); // force the camera to snap
+        }
+      });
     </script>
 </body>
 </html>
