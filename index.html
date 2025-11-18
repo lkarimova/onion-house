@@ -60,6 +60,85 @@
           min-width: 0;
         }    
 
+        .interaction-helper {
+            position: fixed;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            z-index: 3;
+            pointer-events: none; /* let the scene behind be interactive */
+        }
+        
+        .helper-group {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          pointer-events: auto; /* re-enable interaction on the buttons */
+        }
+
+        .helper-label {
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: 600;
+          color: #555;
+          margin-right: 4px;
+        }
+
+        .helper-chip {
+          border: none;
+          border-radius: 999px;
+          padding: 6px 10px;
+          display: inline-flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 1px;
+          background: linear-gradient(145deg, #ffffff, #e7f1ff);
+          box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+          cursor: default;
+          font-family: inherit;
+          font-size: 11px;
+          line-height: 1.3;
+          color: #111;
+          transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+        }
+
+        .helper-chip:focus-visible {
+          outline: 2px solid #006fff;
+          outline-offset: 2px;
+        }
+
+        .helper-chip:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 6px 0 rgba(0, 0, 0, 0.18);
+          background: linear-gradient(145deg, #ffffff, #dce9ff);
+        }
+
+        .helper-chip:active {
+          transform: translateY(2px);
+          box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+          background: linear-gradient(145deg, #eef3ff, #d2e0ff);
+        }
+
+        .helper-action {
+          font-weight: 600;
+        }
+
+        .helper-keys {
+          font-weight: 400;
+          opacity: 0.8;
+        }
+        
         @media (max-width: 768px) {
           .columns {
             flex-direction: column;
@@ -89,7 +168,11 @@
             
           .columns .column:nth-child(2) {
             display: none;
-          }  
+          } 
+            
+          .interaction-helper {
+            display: none;
+          }      
         }
         
         /* Header */
@@ -289,6 +372,36 @@
 </head>
     
 <body>
+      <div class="interaction-helper" aria-label="Desktop controls">
+        <div class="helper-group">
+          <span class="helper-label">Mouse</span>
+          <button class="helper-chip" type="button">
+            <span class="helper-action">Rotate</span>
+            <span class="helper-keys">Left-click + drag</span>
+          </button>
+          <button class="helper-chip" type="button">
+            <span class="helper-action">Zoom</span>
+            <span class="helper-keys">Scroll wheel / pinch</span>
+          </button>
+          <button class="helper-chip" type="button">
+            <span class="helper-action">Pan</span>
+            <span class="helper-keys">Right-click + drag</span>
+          </button>
+        </div>
+
+        <div class="helper-group">
+          <span class="helper-label">Keyboard</span>
+          <button class="helper-chip" type="button">
+            <span class="helper-action">Rotate</span>
+            <span class="helper-keys">Arrow keys</span>
+          </button>
+          <button class="helper-chip" type="button">
+            <span class="helper-action">Reset view</span>
+            <span class="helper-keys">R</span>
+          </button>
+        </div>
+      </div>
+    
     <div class="container homepage-center">
       <div class="columns">
         <div class="column">  
