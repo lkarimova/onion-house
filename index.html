@@ -118,6 +118,7 @@
         .helper-symbol {
           font-size: 24px;
           font-weight: 400;
+          opacity: 0.8;
         }
 
         .helper-text {
@@ -129,6 +130,7 @@
         .helper-title {
           font-size: 12px;
           font-weight: 700;
+          opacity: 0.8;
         }
         
         .helper-desc {
@@ -154,7 +156,7 @@
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          font-size: 12px;
+          font-size: 14px;
           font-weight: 400;
           color: #111;
           cursor: pointer;
@@ -188,19 +190,20 @@
 
           .column p {
             margin-bottom: 10px;
-          }
+          }  
 
           header {
             margin-bottom: 10px;
           }
             
           h1 {
-            font-size: 32px;
+            font-size: 28px;
           }
 
           .description,
           .column p {
             font-size: 14px;
+            text-align: center;
           }  
             
           .columns .column:nth-child(2) {
@@ -215,9 +218,9 @@
             position: fixed;
             top: 10px;
             bottom: auto;
-            left: 16;
-            right: 16;
-            margin: 0 auto;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 32px);
             max-width: 1000px;      /* match your container width */
             padding: 8px 10px;
             border-radius: 15px;
@@ -260,6 +263,7 @@
           .mh-icon {
             font-size: 20px;
             font-weight: 400;
+            opacity: 0.8;  
           }
 
           .mh-text {
@@ -271,11 +275,13 @@
           .mh-title {
             font-size: 10px;
             font-weight: 700;
+            opacity: 0.8;  
           }
 
           .mh-desc {
             font-size: 10px;
             font-weight: 400;
+            opacity: 0.8;
           }
         }
         
@@ -344,10 +350,10 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), inset 0 4px 20px rgba(255, 255, 255, 0.1);
             border-radius: 24px;
-            padding: 12px 20px;
+            padding: 10px 16px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 4px;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
             text-decoration: none;
@@ -378,7 +384,7 @@
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
             font-weight: 600;
         }
 
