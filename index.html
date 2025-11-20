@@ -62,86 +62,66 @@
 
         .interaction-helper {
           position: fixed;
-          top: 12px;
+          top: 10px;
           left: 50%;
           transform: translateX(-50%);
-          display: flex;
-          align-items: center;
-          gap: 20px;
-          padding: 8px 16px;
+          padding: 10px 16px;
+          display: inline-flex;
+          align-items: flex-start;
+          gap: 24px;
+          z-index: 3;
           border-radius: 999px;
           background: rgba(255, 255, 255, 0.6); /* lighter, more transparent */
           border: 1px solid rgba(255, 255, 255, 0.9);
           box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16); /* softer shadow */
           backdrop-filter: blur(14px) saturate(1.1);
           -webkit-backdrop-filter: blur(14px) saturate(1.1);
-          z-index: 3;
         }
 
-        /* keep Mouse + Keyboard sections horizontal */
-        .helper-section {
+        .helper-block {
           display: flex;
-          align-items: center;
+          align-items: flex-end;
           gap: 10px;
         }
 
-        .helper-divider {
-          width: 1px;
-          align-self: stretch;
-          background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0.25),
-            rgba(0, 0, 0, 0)
-          );
-          margin: 0 4px;
-        }
-
-        .helper-label {
-          font-size: 11px;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-weight: 600;
-          color: #444; /* darker for contrast */
-        }
-
-        .helper-row {
+        .helper-icon-text {
           display: flex;
-          align-items: center;
-          gap: 6px;
+          align-items: flex-end;
+          gap: 10px;
         }
 
-        .helper-icon {
-          font-size: 14px;
+        .helper-symbol {
+          font-size: 24px;
+          font-weight: 400;
         }
 
         .helper-text {
-          display: flex;
+          display: inline-flex;
           flex-direction: column;
-          font-size: 11px;
-          line-height: 1.3;
-          color: #222; /* readable on light bg */
+          gap: 4px;
         }
 
-        .helper-action {
-          font-weight: 600;
+        .helper-title {
+          font-size: 12px;
+          font-weight: 700;
         }
-
+        
         .helper-desc {
+          font-size: 12px;
+          font-weight: 400;
           opacity: 0.8;
         }
 
         .helper-keys {
-          display: inline-flex;
+          display: flex;
           align-items: center;
           gap: 4px;
         }
 
-        /* keycaps: lighter, subtler shadow */
+        /* Keycaps */
         .helper-key {
           min-width: 26px;
-          height: 26px;
-          padding: 0 6px;
+          padding: 6px;
           border-radius: 6px;
           border: 1px solid rgba(0, 0, 0, 0.18);
           background: radial-gradient(circle at top left, #ffffff, #e0e7ff);
@@ -149,9 +129,8 @@
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          font-family: inherit;
-          font-size: 11px;
-          font-weight: 600;
+          font-size: 12px;
+          font-weight: 400;
           color: #111;
           cursor: pointer;
           transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
@@ -406,66 +385,72 @@
 </head>
     
 <body>
-      <!-- Desktop interaction helper -->
-  <div class="interaction-helper" aria-label="Desktop controls">
-    <div class="helper-section">
-      <span class="helper-label">Mouse</span>
-
-      <div class="helper-row">
-        <span class="helper-icon">🖱️</span>
-        <div class="helper-text">
-          <span class="helper-action">Rotate</span>
-          <span class="helper-desc">Left-click + drag</span>
+    
+    <div class="interaction-helper" aria-label="Desktop controls">
+      <!-- Rotate -->
+      <div class="helper-block">
+        <div class="helper-icon-text">
+          <span class="helper-symbol">􀖓</span>
+          <div class="helper-text">
+            <span class="helper-title">Rotate</span>
+            <span class="helper-desc">Left-click + drag</span>
+          </div>
         </div>
-      </div>
-
-      <div class="helper-row">
-        <span class="helper-icon">🖱️</span>
-        <div class="helper-text">
-          <span class="helper-action">Zoom</span>
-          <span class="helper-desc">Scroll wheel / pinch</span>
-        </div>
-      </div>
-
-      <div class="helper-row">
-        <span class="helper-icon">🖱️</span>
-        <div class="helper-text">
-          <span class="helper-action">Pan</span>
-          <span class="helper-desc">Right-click + drag</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="helper-divider"></div>
-
-    <div class="helper-section">
-      <span class="helper-label">Keyboard</span>
-
-      <div class="helper-row">
         <div class="helper-keys">
-          <button class="helper-key" type="button" data-key="ArrowLeft">←</button>
-          <button class="helper-key" type="button" data-key="ArrowUp">↑</button>
-          <button class="helper-key" type="button" data-key="ArrowDown">↓</button>
-          <button class="helper-key" type="button" data-key="ArrowRight">→</button>
-        </div>
-        <div class="helper-text">
-          <span class="helper-action">Rotate</span>
-          <span class="helper-desc">Arrow keys</span>
+          <button class="helper-key" type="button" data-key="ArrowLeft">􀄪</button>
+          <button class="helper-key" type="button" data-key="ArrowUp">􀄨</button>
+          <button class="helper-key" type="button" data-key="ArrowDown">􀄩</button>
+          <button class="helper-key" type="button" data-key="ArrowRight">􀄫</button>
         </div>
       </div>
 
-      <div class="helper-row">
+      <!-- Zoom -->
+      <div class="helper-block">
+        <div class="helper-icon-text">
+          <span class="helper-symbol">􂲤</span>
+          <div class="helper-text">
+            <span class="helper-title">Zoom</span>
+            <span class="helper-desc">Scroll</span>
+          </div>
+        </div>
+        <div class="helper-keys">
+          <button class="helper-key" type="button" data-key="-">-</button>
+          <button class="helper-key" type="button" data-key="+">+</button>
+        </div>
+      </div>
+
+      <!-- Move -->
+      <div class="helper-block">
+        <div class="helper-icon-text">
+          <span class="helper-symbol">􀬁</span>
+          <div class="helper-text">
+            <span class="helper-title">Move</span>
+            <span class="helper-desc">Right-click + drag</span>
+          </div>
+        </div>
+        <div class="helper-keys">
+          <button class="helper-key" type="button" data-key="w">W</button>
+          <button class="helper-key" type="button" data-key="a">A</button>
+          <button class="helper-key" type="button" data-key="s">S</button>
+          <button class="helper-key" type="button" data-key="d">D</button>
+        </div>
+      </div>
+
+      <!-- Reset -->
+      <div class="helper-block">
+        <div class="helper-icon-text">
+          <span class="helper-symbol">􀅈</span>
+          <div class="helper-text">
+            <span class="helper-title">Reset</span>
+            <span class="helper-desc">Press R</span>
+          </div>
+        </div>
         <div class="helper-keys">
           <button class="helper-key" type="button" data-key="r">R</button>
         </div>
-        <div class="helper-text">
-          <span class="helper-action">Reset view</span>
-          <span class="helper-desc">Press R</span>
-        </div>
       </div>
     </div>
-  </div>
-    
+
     <div class="container homepage-center">
       <div class="columns">
         <div class="column">  
@@ -589,7 +574,40 @@
 
         modelViewer.cameraOrbit = `${theta}rad ${phi}rad ${radius}m`;
       }
+        
+      function stepZoom(delta) {
+        const orbit = modelViewer.getCameraOrbit();
+        let radius = orbit.radius + delta;
+        // Clamp roughly within your min/max orbit range
+        radius = Math.max(5, Math.min(100, radius));
+        modelViewer.cameraOrbit = `${orbit.theta}rad ${orbit.phi}rad ${radius}m`;
+      }
 
+      function stepPan(direction) {
+        const target = modelViewer.getCameraTarget();
+        const step = 0.7; // tweak as needed
+        let x = target.x;
+        let y = target.y;
+        let z = target.z;
+
+        switch (direction) {
+          case "up":
+            y += step;
+            break;
+          case "down":
+            y -= step;
+            break;
+          case "left":
+            x -= step;
+            break;
+          case "right":
+            x += step;
+            break;
+        }
+
+        modelViewer.cameraTarget = `${x}m ${y}m ${z}m`;
+      }
+  
       // Map data-key → button element
       const keyButtons = document.querySelectorAll(".helper-key");
       const keyMap = new Map();
@@ -610,6 +628,18 @@
             stepOrbit("up");
           } else if (k === "arrowdown") {
             stepOrbit("down");
+          } else if (k === "-") {
+            stepZoom( -2 );
+          } else if (k === "+") {
+            stepZoom( 2 );
+          } else if (k === "w") {
+            stepPan("up");
+          } else if (k === "s") {
+            stepPan("down");
+          } else if (k === "a") {
+            stepPan("left");
+          } else if (k === "d") {
+            stepPan("right");
           }
         });
       });
@@ -624,11 +654,25 @@
           btn.classList.add("is-pressed");
         }
 
-        // Only custom behavior is for R (reset).
+        // Behaviors for real keys:
         if (lower === "r") {
           resetCamera();
+        } else if (lower === "w") {
+          stepPan("up");
+        } else if (lower === "s") {
+          stepPan("down");
+        } else if (lower === "a") {
+          stepPan("left");
+        } else if (lower === "d") {
+          stepPan("right");
+        } else if (k === "-" || lower === "-") {
+          stepZoom(-2);
+        } else if (k === "+" || k === "=") {
+          // "=" is often the key used with Shift to get "+"
+          stepZoom(2);
         }
-        // Arrow keys are already handled by model-viewer natively for rotation.
+        // Arrow keys: let <model-viewer> handle rotation natively;
+        // we only animate the caps visually.
       });
 
       window.addEventListener("keyup", (event) => {
