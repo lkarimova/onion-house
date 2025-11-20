@@ -159,6 +159,10 @@
           outline: 2px solid #006fff;
           outline-offset: 2px;
         }
+
+        .interaction-helper-mobile {
+          display: none;
+        }
         
         @media (max-width: 768px) {
           .columns {
@@ -193,7 +197,63 @@
             
           .interaction-helper {
             display: none;
-          }      
+          }  
+
+          .interaction-helper-mobile {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            max-width: 1000px;      /* match your container width */
+            padding: 8px 10px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.6); /* lighter, more transparent */
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16); /* softer shadow */
+            backdrop-filter: blur(14px) saturate(1.1);
+            -webkit-backdrop-filter: blur(14px) saturate(1.1);  
+            display: inline-flex;
+            align-items: flex-start;
+            justify-content: center;
+            z-index: 3;
+          }
+
+          .mh-row {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            width: 100%;
+          }
+
+          .mh-item {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            min-width: 0;
+          }
+
+          .mh-icon {
+            font-size: 20px;
+            font-weight: 400;
+          }
+
+          .mh-text {
+            display: inline-flex;
+            flex-direction: column;
+            gap: 2px;
+          }
+
+          .mh-title {
+            font-size: 10px;
+            font-weight: 700;
+          }
+
+          .mh-desc {
+            font-size: 10px;
+            font-weight: 400;
+          }
         }
         
         /* Header */
@@ -393,7 +453,7 @@
 </head>
     
 <body>
-    
+    /* Desktop helper */
     <div class="interaction-helper" aria-label="Desktop controls">
       <!-- Rotate -->
       <div class="helper-block">
@@ -422,8 +482,8 @@
           </div>
         </div>
         <div class="helper-keys">
-          <button class="helper-key" type="button" data-key="+">-</button>
-          <button class="helper-key" type="button" data-key="-">+</button>
+          <button class="helper-key" type="button" data-key="+">+</button>
+          <button class="helper-key" type="button" data-key="-">-</button>
         </div>
       </div>
 
@@ -455,6 +515,48 @@
         </div>
         <div class="helper-keys">
           <button class="helper-key" type="button" data-key="r">R</button>
+        </div>
+      </div>
+    </div>
+
+    /* Mobile Helper */
+    <!-- Mobile helper -->
+    <div class="interaction-helper-mobile" aria-label="Touch controls">
+      <div class="mh-row">
+        <!-- Zoom -->
+        <div class="mh-item">
+          <img src="icons/zoom.svg" class="mh-icon" alt="" aria-hidden="true" />
+          <div class="mh-text">
+            <span class="mh-title">Zoom</span>
+            <span class="mh-desc">Pinch</span>
+          </div>
+        </div>
+
+        <!-- Rotate -->
+        <div class="mh-item">
+          <img src="icons/rotate.svg" class="mh-icon" alt="" aria-hidden="true" />
+          <div class="mh-text">
+            <span class="mh-title">Rotate</span>
+            <span class="mh-desc">Drag</span>
+          </div>
+        </div>
+
+        <!-- Move -->
+        <div class="mh-item">
+          <img src="icons/move.svg" class="mh-icon" alt="" aria-hidden="true" />
+          <div class="mh-text">
+            <span class="mh-title">Move</span>
+            <span class="mh-desc">Pinch + drag</span>
+          </div>
+        </div>
+
+        <!-- Reset -->
+        <div class="mh-item">
+          <img src="icons/move.svg" class="mh-icon" alt="" aria-hidden="true" />
+          <div class="mh-text">
+            <span class="mh-title">Reset</span>
+            <span class="mh-desc">Refresh</span>
+          </div>
         </div>
       </div>
     </div>
