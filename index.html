@@ -72,12 +72,12 @@
           align-items: flex-start;
           gap: 24px;
           z-index: 3;
-          border-radius: 999px;
-          background: rgba(255, 255, 255, 0.6); /* lighter, more transparent */
-          border: 1px solid rgba(255, 255, 255, 0.9);
-          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16); /* softer shadow */
-          backdrop-filter: blur(14px) saturate(1.1);
-          -webkit-backdrop-filter: blur(14px) saturate(1.1);
+          border-radius: 15px;
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(8px) saturate(180%);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), inset 0 4px 20px rgba(255, 255, 255, 0.1);  
+          filter: url(#liquid-distortion); 
         }
 
         .helper-block {
@@ -196,22 +196,23 @@
 
           .interaction-helper-mobile {
             position: fixed;
-            bottom: 10px;
-            left: 0;
-            right: 0;
+            top: 10px;
+            bottom: auto;
+            left: 16;
+            right: 16;
             margin: 0 auto;
             max-width: 1000px;      /* match your container width */
             padding: 8px 10px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.6); /* lighter, more transparent */
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16); /* softer shadow */
-            backdrop-filter: blur(14px) saturate(1.1);
-            -webkit-backdrop-filter: blur(14px) saturate(1.1);  
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), inset 0 4px 20px rgba(255, 255, 255, 0.1); 
             display: inline-flex;
             align-items: flex-start;
             justify-content: center;
             z-index: 3;
+            filter: url(#liquid-distortion);  
           }
 
           .mh-row {
@@ -323,6 +324,7 @@
             text-decoration: none;
             color: inherit;
             min-width: 200px;
+            filter: url(#liquid-distortion);
         }
 
         .hotspot:hover {
@@ -449,6 +451,24 @@
 </head>
     
 <body>
+  <svg width="0" height="0" style="position:absolute;">
+    <filter id="liquid-distortion">
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0.05"
+        numOctaves="2"
+        result="turbulence"
+      />
+      <feDisplacementMap
+        in2="turbulence"
+        in="SourceGraphic"
+        scale="20"
+        xChannelSelector="R"
+        yChannelSelector="G"
+      />
+    </filter>
+  </svg>
+    
     <div class="interaction-helper" aria-label="Desktop controls">
       <!-- Rotate -->
       <div class="helper-block">
@@ -546,7 +566,7 @@
 
         <!-- Reset -->
         <div class="mh-item">
-          <img src="icons/move.svg" class="mh-icon" alt="" aria-hidden="true" />
+          <img src="icons/reset.svg" class="mh-icon" alt="" aria-hidden="true" />
           <div class="mh-text">
             <span class="mh-title">Reset</span>
             <span class="mh-desc">Refresh</span>
