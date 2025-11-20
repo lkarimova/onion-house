@@ -70,8 +70,8 @@
         .interaction-helper {
           position: fixed;
           top: 10px;
-          left: 0;
-          right: 0;
+          left: 20;
+          right: 20;
           margin: 0 auto;  
           max-width: 1000px;
           padding: 10px 20px;  
@@ -118,6 +118,7 @@
         }
 
         .helper-text {
+          line-height: 1;
           display: inline-flex;
           flex-direction: column;
           gap: 0;
@@ -130,6 +131,8 @@
         }
         
         .helper-desc {
+          line-height: 1;
+          margin: 0;
           font-size: 12px;
           font-weight: 400;
           opacity: 0.8;
@@ -245,7 +248,7 @@
           .mh-row {
             display: inline-flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             gap: 4px;
             width: 100%;
           }
@@ -253,13 +256,13 @@
           .mh-item {
             display: flex;
             align-items: center;
-            gap: 2px;
+            gap: 0;
             min-width: 0;
           }
 
           .mh-icon {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             opacity: 0.6;  
           }
 
